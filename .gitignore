@@ -1,0 +1,9 @@
+# Terraform local state and backups
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Sensitive variables
+*.tfvars
+auth-key.json
