@@ -1,5 +1,5 @@
 provider "google" {
-  project = "project-bd35fdf8-3277-4d41-a98" # my first project
+  project = "project-bd35fdf8-3277-4d41-a98" # hello world website
   region  = "australia-southeast1"
 }
 
