@@ -8,6 +8,11 @@ resource "google_compute_instance" "devops_vm" {
   machine_type = "e2-micro" # Free tier eligible in some regions
   zone         = "australia-southeast1-a"
 
+# For Ansible's dynamic inventory
+  labels = {
+    role = "webserver"
+  }
+
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-11"
@@ -19,6 +24,10 @@ resource "google_compute_instance" "devops_vm" {
     access_config {
       // Ephemeral IP to allow internet access
     }
+  }
+
+  metadata = {
+    ssh-keys = "peter:${file("~/.ssh/id_rsa.pub")}"
   }
 
   # This is the "DevOps Magic" - it installs Nginx on boot

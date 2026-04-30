@@ -1,0 +1,9 @@
+plugin: google.cloud.gcp_compute
+projects:
+  - project-bd35fdf8-3277-4d41-a98
+auth_kind: application
+keyed_groups:
+  - key: labels
+    prefix: gcp
+filters:
+  - status = RUNNING

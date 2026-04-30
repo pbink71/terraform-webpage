@@ -1,0 +1,16 @@
+---
+- name: Setup Hello World Website
+  hosts: all
+  become: yes  # Runs commands as sudo
+  tasks:
+    - name: Ensure Nginx is installed
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Copy index.html to the server
+      copy:
+        src: ./static-website-example/index.html
+        dest: /var/www/html/index.html
+        mode: '0644'
